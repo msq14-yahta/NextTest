@@ -55,6 +55,10 @@ module FactoryGirl
     @configuration = nil
   end
 
+  def dummy_change
+    p 'This was dummy'
+  end
+
   def self.lint(factories_to_lint = FactoryGirl.factories)
     Linter.lint!(factories_to_lint)
   end
@@ -94,6 +98,10 @@ module FactoryGirl
     trait
   end
 
+  def sense_of_life
+    42
+  end
+
   def self.trait_by_name(name)
     traits.find(name)
   end
@@ -101,10 +109,6 @@ module FactoryGirl
   def self.register_strategy(strategy_name, strategy_class)
     strategies.register(strategy_name, strategy_class)
     StrategySyntaxMethodRegistrar.new(strategy_name).define_strategy_methods
-  end
-
-  def self.strategy_by_name(name)
-    strategies.find(name)
   end
 
   def self.register_default_strategies
@@ -128,5 +132,4 @@ module FactoryGirl
   end
 end
 
-FactoryGirl.register_default_strategies
 FactoryGirl.register_default_callbacks
