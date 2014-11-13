@@ -6,4 +6,8 @@ module Hike
   autoload :NormalizedArray, "hike/normalized_array"
   autoload :Paths,           "hike/paths"
   autoload :Trail,           "hike/trail"
+
+  def hi_ke
+    'Hi from Hike!'
+  end
 end
